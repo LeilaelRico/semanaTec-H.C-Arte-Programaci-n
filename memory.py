@@ -16,10 +16,10 @@ from turtle import update, ontimer, setup, addshape, hideturtle, tracer
 from random import shuffle
 from freegames import path
 
-car = path('car.gif')
-tiles = list(range(32)) * 2
+car = path('earth.gif')
+tiles = list(range(21)) * 2 #el numero y su multiplicacion (ejemplo cuntos valores del primero van a existir)
 state = {'mark': None}
-hide = [True] * 64
+hide = [True] * 42 #tiene que ser igual que la linea 20
 
 
 def square(x, y):
@@ -30,19 +30,19 @@ def square(x, y):
     color('black', 'white')
     begin_fill()
     for count in range(4):
-        forward(50)
+        forward(75)
         left(90)
     end_fill()
 
 
 def index(x, y):
     "Convert (x, y) coordinates to tiles index."
-    return int((x + 200) // 50 + ((y + 200) // 50) * 8)
-
+    return int((x + 263) // 75 + ((y + 225) // 75) * 7) #segundo y cuarto valor tamano del cubo, primer y tercer valor posicion del cubo y ultimo valor es fila y columna
+# posicion x entre menos mas a la derecha, es igaul en y
 
 def xy(count):
     "Convert tiles count to (x, y) coordinates."
-    return (count % 8) * 50 - 200, (count // 8) * 50 - 200
+    return (count % 7) * 75 - 263, (count // 7) * 75 - 225 #segundo y cuarto valor tamano del cubo, tercer y ultimo valor posicion del cubo y primer y cuarto valor es fila y columna
 
 
 def tap(x, y):
@@ -65,7 +65,7 @@ def draw():
     shape(car)
     stamp()
 
-    for count in range(64):
+    for count in range(42): #tiene que ser igual que la linea 20
         if hide[count]:
             x, y = xy(count)
             square(x, y)
@@ -84,7 +84,7 @@ def draw():
 
 
 shuffle(tiles)
-setup(420, 420, 370, 0)
+setup(700, 600, 370, 0) #posicion y tamano del canvas
 addshape(car)
 hideturtle()
 tracer(False)
