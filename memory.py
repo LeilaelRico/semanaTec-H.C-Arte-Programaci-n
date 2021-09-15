@@ -80,7 +80,7 @@ def draw():
         write(tiles[mark], font=('Arial', 30, 'normal'))
 
     update()
-    ontimer(draw, 100)dfe
+    ontimer(draw, 100)
 
 
 shuffle(tiles)
