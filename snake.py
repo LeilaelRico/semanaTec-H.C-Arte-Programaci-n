@@ -6,6 +6,13 @@ from freegames import square, vector
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+color = ['black', 'green', 'orange', 'blue', 'yellow', 'pink']
+snakeColor = color[randrange(0, 5)]
+fruitColor = color[randrange(0, 5)]
+
+
+if fruitColor == snakeColor:
+    fruitColor = color[randrange(0, 5)]
 
 
 def change(x, y):
@@ -24,7 +31,7 @@ def move():
     head = snake[-1].copy()
     head.move(aim)
 
-    if head in snake:
+    if not inside(head) or head in snake:
         square(head.x, head.y, 9, 'red')
         update()
         return
@@ -41,12 +48,12 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, snakeColor)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, fruitColor)
     update()
     "Changed to make the snake move faster"
-    ontimer(move, 100-len(snake))
+    ontimer(move, 100-(10+len(snake)))
 
 
 setup(420, 420, 370, 0)
