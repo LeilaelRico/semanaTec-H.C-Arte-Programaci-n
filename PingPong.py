@@ -1,6 +1,8 @@
 import turtle
-
-
+"""
+ cambiar la aceleracion de la bola
+ First to 5 
+"""
 def pong(name1, score_a, name2, score_b):
     # Canvas
     win = turtle.Screen()
@@ -48,8 +50,9 @@ def pong(name1, score_a, name2, score_b):
     bola.color("white")
     bola.penup()
     bola.goto(0, 0)
-    bola.dx = 0.5
-    bola.dy = 0.5
+    bola.dx = 0.9
+    bola.dy = 0.9
+
 
     # Score
     Dscore = turtle.Turtle()
@@ -143,6 +146,26 @@ def pong(name1, score_a, name2, score_b):
             bola.setx(-340)
             bola.dx *= -1
 
+        elif score_a >= 5:
+            turtle.clearscreen()
+            WinA = turtle.Turtle()
+
+            WinA.color("black")
+            WinA.penup()
+            WinA.hideturtle()
+            WinA.goto(0, 0)
+            WinA.write("{} WINS!".format(name1), align="center", font=("Arial", 24, "normal"))
+
+        elif score_b >= 5:
+            turtle.clearscreen()
+            WinB = turtle.Turtle()
+
+            WinB.color("black")
+            WinB.penup()
+            WinB.hideturtle()
+            WinB.goto(0, 0)
+            WinB.write("{} WINS!".format(name2), align="center", font=("Arial", 24, "normal"))
+
 
 def crea_matriz(name1, score_a, name2, score_b):
     matriz = [[name1, score_a], [name2, score_b]]
@@ -158,6 +181,7 @@ def imprime_matriz(matriz):
 
 def salir():
     turtle.bye()
+
 
 
 def main():
