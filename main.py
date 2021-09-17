@@ -15,9 +15,10 @@ def menu():
     print("1. Snake.")
     print("2. Simon Says.")
     print("3. Memory Game.")
-    print("4. Pong.")
+    print("4. Ping Pong.")
     print("5. Exit.")
     print("*****************************************************************")
+    
     
 def main():      
     continua=True
@@ -26,19 +27,19 @@ def main():
         opcion=int(input("Choose a game: "))
 
         if opcion == 1:
-            subprocess.run(['py', 'snake.py'])
-
+            subprocess.run(['python', 'snake.py'])
+            
 
         elif opcion == 2:
-            subprocess.run(['py', 'simonsays.py'])
+            subprocess.run(['python', 'simonsays.py'])
 
  
         elif opcion == 3:
-            print("Thank you for playing")
+            subprocess.run(['python', 'memory.py'])
 
 
         elif opcion == 4:
-            print("Thank you for playing")
+            subprocess.run(['python', 'PingPong.py'])
  
 
         elif opcion == 5:
