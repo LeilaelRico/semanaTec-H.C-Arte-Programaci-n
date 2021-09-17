@@ -1,9 +1,6 @@
 """
 Show when you win
-Levels: Baby list(range(4)) * 3
-Easy: list(range(12)) * 2
-Medium: list(range(21)) * 2
-Hard : list(range(40)) * 2
+Menu and main
 """
 
 from turtle import up, goto, down, color, begin_fill, forward, onscreenclick
@@ -90,7 +87,7 @@ def baby():
 
     shuffle(tiles)
     # posicion y tamano del canvas
-    setup(400, 400, 370, 0)
+    setup(280, 230, 770, 300)
     addshape(car)
     hideturtle()
     tracer(False)
@@ -178,7 +175,7 @@ def easy():
 
     shuffle(tiles)
     # posicion y tamano del canvas
-    setup(450, 600, 570, 200)
+    setup(355, 440, 570, 200)
     addshape(car)
     hideturtle()
     tracer(False)
@@ -266,7 +263,7 @@ def medium():
 
     shuffle(tiles)
     # posicion y tamano del canvas
-    setup(700, 600, 370, 0)
+    setup(550, 480, 370, 0)
     addshape(car)
     hideturtle()
     tracer(False)
@@ -354,7 +351,7 @@ def hard():
 
     shuffle(tiles)
     # posicion y tamano del canvas
-    setup(700, 600, 370, 0)
+    setup(500, 380, 370, 0)
     addshape(car)
     hideturtle()
     tracer(False)
@@ -362,4 +359,31 @@ def hard():
     draw()
     done()
 
-baby()
+
+def menu():
+    print("1. Baby Puzzle")
+    print("2. Easy Puzzle")
+    print("3. Medium Puzzle")
+    print("4. Hard Puzzle")
+    print("5. Exit")
+
+
+def main():
+    continua = True
+    while continua:
+        menu()
+        opcion=int(input("Introduce una opcion: "))
+        if opcion == 1:
+            baby()
+        elif opcion == 2:
+            easy()
+        elif opcion == 3:
+            medium()
+        elif opcion == 4:
+            hard()
+        elif opcion == 5:
+            print("Adios")
+            continua = False
+        else:
+            print("Opcion_invalida")
+main()
