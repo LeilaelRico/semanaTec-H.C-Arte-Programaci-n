@@ -7,10 +7,12 @@ menu
 """
 
 from turtle import up, goto, down, color, begin_fill, forward, onscreenclick
-from turtle import left, end_fill, clear, shape, stamp, write, done, clearscreen
-from turtle import update, ontimer, setup, addshape, hideturtle, tracer, Turtle
+from turtle import left, end_fill, clear, shape, stamp, write, done
+from turtle import update, ontimer, setup, addshape, hideturtle, tracer
 from random import shuffle
 from freegames import path
+
+
 def baby():
     car = path('pamomitas.gif')
     # el numero y su multiplicacion (1 tiene 2 2 tiene 2)
@@ -18,7 +20,6 @@ def baby():
     state = {'mark': None}
     # tiene que ser igual que la linea 20
     hide = [True] * 12
-
 
     def square(x, y):
         "Draw white square with black outline at (x, y)."
@@ -32,7 +33,6 @@ def baby():
             left(90)
         end_fill()
 
-
     def index(x, y):
         "Convert (x, y) coordinates to tiles index."
         return int((x + 120) // 60 + ((y + 90) // 60) * 4)
@@ -40,14 +40,12 @@ def baby():
     #  del cubo y ultimo valor es fila y columna
     # posicion x entre menos mas a la derecha, es igaul en y
 
-
     def xy(count):
         "Convert tiles count to (x, y) coordinates."
         return (count % 4) * 60 - 120, (count // 4) * 60 - 90
     # segundo y cuarto valor tamano del cubo, tercer y
     # ultimo valor posicion del cubo
     # y primer y cuarto valor es fila y columna
-
 
     def tap(x, y):
         "Update mark and hidden tiles based on tap."
@@ -62,7 +60,6 @@ def baby():
             hide[spot] = False
             hide[mark] = False
             state['mark'] = None
-
 
     def draw():
         "Draw image and tiles."
@@ -89,7 +86,6 @@ def baby():
         update()
         ontimer(draw, 100)
 
-
     shuffle(tiles)
     # posicion y tamano del canvas
     setup(280, 230, 770, 300)
@@ -109,7 +105,6 @@ def easy():
     # tiene que ser igual que la linea 20
     hide = [True] * 24
 
-
     def square(x, y):
         "Draw white square with black outline at (x, y)."
         up()
@@ -122,14 +117,12 @@ def easy():
             left(90)
         end_fill()
 
-
     def index(x, y):
         "Convert (x, y) coordinates to tiles index."
         return int((x + 145) // 75 + ((y + 200) // 65) * 4)
     # segundo y cuarto valor tamano del cubo, primer y tercer valor posicion
     #  del cubo y ultimo valor es fila y columna
     # posicion x entre menos mas a la derecha, es igaul en y
-
 
     def xy(count):
         "Convert tiles count to (x, y) coordinates."
@@ -138,7 +131,6 @@ def easy():
     # ultimo valor posicion del cubo
     # y primer y cuarto valor es fila y columna
 
-
     def tap(x, y):
         "Update mark and hidden tiles based on tap."
         spot = index(x, y)
@@ -146,11 +138,12 @@ def easy():
 
         if mark is None or mark == spot or tiles[mark] != tiles[spot]:
             state['mark'] = spot
+            if spot == 23:
+                print("You Win")
         else:
             hide[spot] = False
             hide[mark] = False
             state['mark'] = None
-
 
     def draw():
         "Draw image and tiles."
@@ -177,7 +170,6 @@ def easy():
         update()
         ontimer(draw, 100)
 
-
     shuffle(tiles)
     # posicion y tamano del canvas
     setup(355, 440, 570, 200)
@@ -197,7 +189,6 @@ def medium():
     # tiene que ser igual que la linea 20
     hide = [True] * 42
 
-
     def square(x, y):
         "Draw white square with black outline at (x, y)."
         up()
@@ -210,14 +201,12 @@ def medium():
             left(90)
         end_fill()
 
-
     def index(x, y):
         "Convert (x, y) coordinates to tiles index."
         return int((x + 263) // 75 + ((y + 225) // 75) * 7)
     # segundo y cuarto valor tamano del cubo, primer y tercer valor posicion
     #  del cubo y ultimo valor es fila y columna
     # posicion x entre menos mas a la derecha, es igaul en y
-
 
     def xy(count):
         "Convert tiles count to (x, y) coordinates."
@@ -226,7 +215,6 @@ def medium():
     # ultimo valor posicion del cubo
     # y primer y cuarto valor es fila y columna
 
-
     def tap(x, y):
         "Update mark and hidden tiles based on tap."
         spot = index(x, y)
@@ -234,11 +222,12 @@ def medium():
 
         if mark is None or mark == spot or tiles[mark] != tiles[spot]:
             state['mark'] = spot
+            if spot == 41:
+                print("You Win")
         else:
             hide[spot] = False
             hide[mark] = False
             state['mark'] = None
-
 
     def draw():
         "Draw image and tiles."
@@ -265,7 +254,6 @@ def medium():
         update()
         ontimer(draw, 100)
 
-
     shuffle(tiles)
     # posicion y tamano del canvas
     setup(550, 480, 370, 0)
@@ -285,7 +273,6 @@ def hard():
     # tiene que ser igual que la linea 20
     hide = [True] * 80
 
-
     def square(x, y):
         "Draw white square with black outline at (x, y)."
         up()
@@ -298,14 +285,12 @@ def hard():
             left(90)
         end_fill()
 
-
     def index(x, y):
         "Convert (x, y) coordinates to tiles index."
         return int((x + 235) // 47 + ((y + 180) // 45) * 10)
     # segundo y cuarto valor tamano del cubo, primer y tercer valor posicion
     #  del cubo y ultimo valor es fila y columna
     # posicion x entre menos mas a la derecha, es igaul en y
-
 
     def xy(count):
         "Convert tiles count to (x, y) coordinates."
@@ -314,7 +299,6 @@ def hard():
     # ultimo valor posicion del cubo
     # y primer y cuarto valor es fila y columna
 
-
     def tap(x, y):
         "Update mark and hidden tiles based on tap."
         spot = index(x, y)
@@ -322,11 +306,12 @@ def hard():
 
         if mark is None or mark == spot or tiles[mark] != tiles[spot]:
             state['mark'] = spot
+            if spot == 79:
+                print("You Win")
         else:
             hide[spot] = False
             hide[mark] = False
             state['mark'] = None
-
 
     def draw():
         "Draw image and tiles."
@@ -353,7 +338,6 @@ def hard():
         update()
         ontimer(draw, 100)
 
-
     shuffle(tiles)
     # posicion y tamano del canvas
     setup(500, 380, 370, 0)
@@ -377,7 +361,7 @@ def main():
     continua = True
     while continua:
         menu()
-        opcion=int(input("Introduce una opcion: "))
+        opcion = int(input("Introduce una opcion: "))
         if opcion == 1:
             baby()
         elif opcion == 2:
@@ -391,4 +375,6 @@ def main():
             continua = False
         else:
             print("Opcion_invalida")
+
+
 main()

@@ -2,6 +2,8 @@ import turtle
 """
  cambiar la aceleracion de la bola
 """
+
+
 def pong(name1, score_a, name2, score_b):
     # Canvas
     win = turtle.Screen()
@@ -51,8 +53,6 @@ def pong(name1, score_a, name2, score_b):
     bola.goto(0, 0)
     bola.dx = 0.9
     bola.dy = 0.9
-
-
     # Score
     Dscore = turtle.Turtle()
 
@@ -180,7 +180,6 @@ def imprime_matriz(matriz):
 
 def salir():
     turtle.bye()
-
 
 
 def main():
