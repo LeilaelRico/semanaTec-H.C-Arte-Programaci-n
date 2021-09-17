@@ -11,8 +11,8 @@ Se agregaron 2 nuevas baldosas y la velocidad va aumentando.
 
 ## memory.py
 Se agregan nuevas imágenes y dificultades.  
-**Nota**
-*Para que este se reproduzca, se deben de copiar las imágenes contenidas en https://drive.google.com/drive/folders/1HHgIY-V9gQIYSznQiMDNfDENhiNIfSqy?usp=sharing en la carpeta de **freegames**, ejemplos de su ubicación son:* 
+**Nota**  
+*Para que este se reproduzca, se deben de copiar las imágenes contenidas en https://drive.google.com/drive/folders/1HHgIY-V9gQIYSznQiMDNfDENhiNIfSqy?usp=sharing en la carpeta de **freegames**, ejemplos de su ubicación son:*  
 **\AppData\Local\Programs\Python\Python39\Lib\site-packages\freegames** o **AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\freegames**  
 
 ## PingPong.py
