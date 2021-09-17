@@ -60,14 +60,17 @@ def pong(name1, score_a, name2, score_b):
     Dscore.penup()
     Dscore.hideturtle()
     Dscore.goto(0, 250)
-    Dscore.write("{}: 0           {}: 0".format(name1, name2), align="center", font=("Arial", 24, "normal"))
+    Dscore.write("{}: 0           {}: 0"
+                 .format(name1,
+                         name2), align="center", font=("Arial", 24, "normal"))
     # Intrucciones
     Tutorial = turtle.Turtle()
     Tutorial.color("gray")
     Tutorial.penup()
     Tutorial.hideturtle()
     Tutorial.goto(0, -250)
-    Tutorial.write("Player A: 'w' 's'                Player B: '↑' '↓'", align="center", font=("Arial", 16, "normal"))
+    Tutorial.write("Player A: 'w' 's'       Player B: '↑' '↓'",
+                   align="center", font=("Arial", 16, "normal"))
     esc = turtle.Turtle()
     esc.color("gray")
     esc.penup()
@@ -127,21 +130,31 @@ def pong(name1, score_a, name2, score_b):
             bola.dx *= -1
             score_a += 1
             Dscore.clear()
-            Dscore.write("{}: {}           {}: {}".format(name1, score_a, name2, score_b), align="center", font=("Arial", 24, "normal"))
+            Dscore.write("{}: {}           {}: {}"
+                         .format(name1, score_a, name2,
+                                 score_b), align="center",
+                         font=("Arial", 24, "normal"))
 
         elif bola.xcor() < -390:
             bola.goto(0, 0)
             bola.dx *= -1
             score_b += 1
             Dscore.clear()
-            Dscore.write("{}: {}           {}: {}".format(name1, score_a, name2, score_b), align="center", font=("Arial", 24, "normal"))
+            Dscore.write("{}: {}           {}: {}"
+                         .format(name1, score_a, name2,
+                                 score_b), align="center",
+                         font=("Arial", 24, "normal"))
 
         # Colisiones
-        elif bola.xcor() > 340 and (bola.ycor() < barra_Der.ycor() + 40 and bola.ycor() > barra_Der.ycor() - 40):
+        elif bola.xcor() > 340 and\
+            (bola.ycor() < barra_Der.ycor() + 40 and
+             bola.ycor() > barra_Der.ycor() - 40):
             bola.setx(340)
             bola.dx *= -1
 
-        elif bola.xcor() < -340 and (bola.ycor() < barra_Izq.ycor() + 40 and bola.ycor() > barra_Izq.ycor() - 40):
+        elif bola.xcor() < -340 and\
+            (bola.ycor() < barra_Izq.ycor() + 40 and
+             bola.ycor() > barra_Izq.ycor() - 40):
             bola.setx(-340)
             bola.dx *= -1
 
@@ -153,7 +166,8 @@ def pong(name1, score_a, name2, score_b):
             WinA.penup()
             WinA.hideturtle()
             WinA.goto(0, 0)
-            WinA.write("{} WINS!".format(name1), align="center", font=("Arial", 24, "normal"))
+            WinA.write("{} WINS!".format(name1),
+                       align="center", font=("Arial", 24, "normal"))
 
         elif score_b >= 5:
             turtle.clearscreen()
@@ -163,7 +177,8 @@ def pong(name1, score_a, name2, score_b):
             WinB.penup()
             WinB.hideturtle()
             WinB.goto(0, 0)
-            WinB.write("{} WINS!".format(name2), align="center", font=("Arial", 24, "normal"))
+            WinB.write("{} WINS!".format(name2),
+                       align="center", font=("Arial", 24, "normal"))
 
 
 def crea_matriz(name1, score_a, name2, score_b):
