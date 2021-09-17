@@ -28,7 +28,7 @@ def main():
 
         if opcion == 1:
             subprocess.run(['python', 'snake.py'])
-
+            break()
 
         elif opcion == 2:
             subprocess.run(['py', 'simonsays.py'])
