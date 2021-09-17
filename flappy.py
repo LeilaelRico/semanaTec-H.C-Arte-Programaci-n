@@ -18,7 +18,6 @@ from freegames import vector
 bird = vector(0, 0)
 balls = []
 
-
 def tap(x, y):
     "Move bird up in response to screen tap."
     up = vector(0, 30)
@@ -29,21 +28,29 @@ def inside(point):
     "Return True if point on screen."
     return -200 < point.x < 200 and -200 < point.y < 200
 
+obstam = randrange(20, 45)
 
 def draw(alive):
     "Draw screen objects."
+    
     clear()
 
     goto(bird.x, bird.y)
 
     if alive:
         dot(10, 'green')
+    
     else:
         dot(10, 'red')
 
     for ball in balls:
+
         goto(ball.x, ball.y)
-        dot(20, 'black')
+        dot(obstam, 'blue')
+
+        if ball == ball:
+            dot(randrange(20, 45), 'yellow')
+
 
     update()
 
@@ -74,6 +81,7 @@ def move():
 
     draw(True)
     ontimer(move, 50)
+    
 
 
 setup(420, 420, 370, 0)
