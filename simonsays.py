@@ -1,18 +1,10 @@
-"""Simon Says
-
-Exercises
-
-1. Speed up tile flash rate.
-2. Add more tiles.
-
-"""
-
 from random import choice
 from time import sleep
 from turtle import update, onscreenclick, setup, hideturtle, tracer, done
 from freegames import floor, square, vector
 
 pattern = []
+tsl = 0.5
 guesses = []
 tiles = {
     vector(0, 0): ('red', 'dark red'),
@@ -40,10 +32,10 @@ def flash(tile):
     glow, dark = tiles[tile]
     square(tile.x, tile.y, 200, glow)
     update()
-    sleep(0.5)
+    sleep(tsl-(len(guesses)*0.01))
     square(tile.x, tile.y, 200, dark)
     update()
-    sleep(0.5)
+    sleep(tsl-(len(guesses)*0.01))
 
 
 def grow():
@@ -74,6 +66,8 @@ def tap(x, y):
 
     if len(guesses) == len(pattern):
         grow()
+        if len(guesses) % 2 == 0:
+            tsl - 0.1
 
     onscreenclick(tap)
 
@@ -84,7 +78,7 @@ def start(x, y):
     onscreenclick(tap)
 
 
-setup(.60, .5, None, None)
+setup(0.60, 0.5, None, None)
 hideturtle()
 tracer(False)
 grid()
