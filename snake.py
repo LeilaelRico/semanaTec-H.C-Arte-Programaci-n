@@ -6,12 +6,19 @@ from freegames import square, vector
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+# Se añade vector que cambiará el color de la serpiente y
+# fruta en cada nueva partida.
 color = ['black', 'green', 'orange', 'blue', 'yellow', 'pink']
+# Las funciones se encargarán de que los colores sean aleatorios.
 snakeColor = color[randrange(0, 5)]
 fruitColor = color[randrange(0, 5)]
 
 
 if fruitColor == snakeColor:
+    """
+    Para evitar que el color se repita en la serpiente
+    y fruta, se hace uso de esta condición.
+    """
     fruitColor = color[randrange(0, 5)]
 
 
@@ -52,8 +59,14 @@ def move():
 
     square(food.x, food.y, 9, fruitColor)
     update()
-    "Changed to make the snake move faster"
+    """
+    La serpiente se irá moviendo más rápido
+    conforme esta aumente su tamaño, esto se logra
+    haciendo que al valor del ontimer se le reste el
+    dato que posee en longitud.
+    """
     ontimer(move, 100-(10+len(snake)))
+    # El límite del juego se encuentra cuando este valor llegue a 0.
 
 
 setup(420, 420, 370, 0)
