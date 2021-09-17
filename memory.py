@@ -1,11 +1,14 @@
 """
-Show when you win
-Menu and main
+Tamanos
+Win condition
+Dificulad y niveles
+Cambio de imagenes
+menu
 """
 
 from turtle import up, goto, down, color, begin_fill, forward, onscreenclick
-from turtle import left, end_fill, clear, shape, stamp, write, done
-from turtle import update, ontimer, setup, addshape, hideturtle, tracer
+from turtle import left, end_fill, clear, shape, stamp, write, done, clearscreen
+from turtle import update, ontimer, setup, addshape, hideturtle, tracer, Turtle
 from random import shuffle
 from freegames import path
 def baby():
@@ -53,6 +56,8 @@ def baby():
 
         if mark is None or mark == spot or tiles[mark] != tiles[spot]:
             state['mark'] = spot
+            if spot == 11:
+                print("You Win")
         else:
             hide[spot] = False
             hide[mark] = False

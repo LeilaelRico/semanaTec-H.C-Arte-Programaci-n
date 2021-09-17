@@ -1,7 +1,6 @@
 import turtle
 """
  cambiar la aceleracion de la bola
- First to 5 
 """
 def pong(name1, score_a, name2, score_b):
     # Canvas
