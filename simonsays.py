@@ -13,6 +13,8 @@ tiles = {
     vector(-200, -200): ('yellow', 'khaki'),
     vector(200, 0): ('purple', 'violet'),
     vector(200, -200): ('gray', 'black'),
+    # Se agregan 2 nuevas baldosas que se encontrarán
+    # al lado derecho de la roja y azul.
 }
 
 
@@ -22,6 +24,7 @@ def grid():
     square(0, -200, 200, 'dark blue')
     square(-200, 0, 200, 'dark green')
     square(-200, -200, 200, 'khaki')
+    # Se agregan los colores de 'apagado' de las nuevas baldosas.
     square(200, 0, 200, 'violet')
     square(200, -200, 200, 'black')
     update()
@@ -32,6 +35,12 @@ def flash(tile):
     glow, dark = tiles[tile]
     square(tile.x, tile.y, 200, glow)
     update()
+    """
+    Con el tiempo, la velocidad en la que saldrán los colores aumentará,
+    para que esta no sea abrupta, la velocidad irá cambiando lentamente.
+    Se debe de recalcar que, el límite que el programa tendrá será cuando
+    el valor de la variable tsl = 0
+    """
     sleep(tsl-(len(guesses)*0.01))
     square(tile.x, tile.y, 200, dark)
     update()
@@ -66,8 +75,6 @@ def tap(x, y):
 
     if len(guesses) == len(pattern):
         grow()
-        if len(guesses) % 2 == 0:
-            tsl - 0.1
 
     onscreenclick(tap)
 
@@ -78,7 +85,7 @@ def start(x, y):
     onscreenclick(tap)
 
 
-setup(0.60, 0.5, None, None)
+setup(0.60, 0.50, None, None)
 hideturtle()
 tracer(False)
 grid()

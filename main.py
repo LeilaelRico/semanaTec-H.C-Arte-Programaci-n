@@ -19,6 +19,7 @@ def menu():
     print("5. Exit.")
     print("*****************************************************************")
     
+    
 def main():      
     continua=True
     while continua:
@@ -26,7 +27,7 @@ def main():
         opcion=int(input("Choose a game: "))
 
         if opcion == 1:
-            subprocess.run(['py', 'snake.py'])
+            subprocess.run(['python', 'snake.py'])
 
 
         elif opcion == 2:
